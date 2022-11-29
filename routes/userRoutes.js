@@ -6,11 +6,11 @@ const router = express.Router();
 
 router.post("/signup", usersController.signup);
 router.post("/login", usersController.login);
-router.get(
-	"/secret",
-	usersController.authorization,
-	usersController.showSecret
-);
-router.get("/logout", usersController.authorization, usersController.logOut);
+
+// users must be log in to get here
+router.use(usersController.authorization);
+
+router.get("/logout", usersController.logOut);
+router.get("/secret", usersController.showSecret);
 
 module.exports = router;
