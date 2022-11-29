@@ -15,7 +15,7 @@ app.use(cookieParser());
 app.use(cors());
 
 // Connecting to MongoDB
-mongoose.connect("mongodb://localhost:27017/JWT_HW").then(() => {
+mongoose.connect("mongodb://127.0.0.1:27017/taskManager").then(() => {
 	console.log("MongoDB connected successfully!");
 });
 
@@ -23,5 +23,5 @@ mongoose.connect("mongodb://localhost:27017/JWT_HW").then(() => {
 app.use("/api/users", userRoutes);
 
 app.listen(2020, () => {
-	console.log(`App running on port: 127.0.0.1:2020...`);
+	console.log(`App running on port: https://127.0.0.1:2020...`);
 });
