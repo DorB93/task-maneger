@@ -6,13 +6,17 @@ const taskSchema = new mongoose.Schema(
 			type: String,
 			required: [true, "Please provide the todo text!"],
 		},
-		deadline: {
-			type: String,
+		dueDate: {
+			type: Date,
 			required: [true, "Please provide the do date!"],
 		},
 		createAt: {
 			type: Date,
 			default: new Date(),
+		},
+		completed: {
+			type: Boolean,
+			default: false,
 		},
 		active: {
 			type: Boolean,

@@ -98,11 +98,7 @@ async function login(req, res) {
 async function signup(req, res) {
 	try {
 		// Creating the user in mongoDB
-		const newUser = await User.create({
-			name: req.body.name,
-			email: req.body.email,
-			password: req.body.password,
-		});
+		const newUser = await User.create(req.body);
 
 		createSendToken(newUser, 201, res);
 	} catch (err) {
@@ -132,18 +128,10 @@ async function logOut(req, res, next) {
 		});
 	} catch (err) {}
 }
-// Show something only to login users
-function showSecret(req, res) {
-	res.status(200).json({
-		status: "success",
-		message: `You know the secret! ${req.user.name}:)`,
-	});
-}
 
 module.exports = {
 	authorization,
 	login,
 	signup,
-	showSecret,
 	logOut,
 };

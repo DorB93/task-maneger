@@ -11,6 +11,5 @@ router.post("/login", usersController.login);
 router.use(usersController.authorization);
 
 router.get("/logout", usersController.logOut);
-router.get("/secret", usersController.showSecret);
 
 module.exports = router;
